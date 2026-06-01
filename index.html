@@ -3,140 +3,631 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Oryxen.co.za | Digital Solutions</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Oryxen | Digital Solutions. Real Impact.</title>
+  <meta name="description" content="Oryxen builds modern web platforms, mobile applications, cloud solutions, conversational AI and digital products that create real-world impact." />
   <style>
-    :root{
-      --black:#0B0F19; --charcoal:#111827; --slate:#374151; --copper:#C26D3A; --sand:#D6A77A; --offwhite:#F9FAFB; --white:#fff; --line:#E5E7EB;
+    :root {
+      --charcoal:#111827;
+      --slate:#374151;
+      --copper:#C26D3A;
+      --sand:#D6A77A;
+      --offwhite:#F9FAFB;
+      --white:#ffffff;
+      --muted:#6B7280;
+      --line:rgba(17,24,39,.12);
+      --shadow:0 24px 80px rgba(17,24,39,.16);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;scroll-padding-top:92px}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--offwhite);color:var(--charcoal)}
-    a{text-decoration:none;color:inherit}
 
-    .oryx-logo{display:inline-flex;align-items:center;gap:12px}
-    .mark{width:48px;height:58px;flex:0 0 auto}
-    .mark path,.mark polyline,.mark line{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-    .mark .accent{stroke:var(--copper)}
-    .word{font-size:27px;font-weight:700;letter-spacing:-1.2px;line-height:1;color:inherit}
-    .word .x{color:var(--copper)}
-    .domain{display:block;font-size:12px;color:var(--copper);font-weight:700;letter-spacing:.4px;margin-top:2px;text-align:right}
-
-    header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,15,25,.9);backdrop-filter:blur(14px);border-bottom:1px solid rgba(214,167,122,.18);color:white}
-    .nav{max-width:1180px;margin:auto;height:78px;padding:0 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .nav-links{display:flex;align-items:center;gap:26px;font-size:14px;color:#d1d5db}
-    .nav-links a:hover{color:var(--sand)}
-    .nav-cta{border:1px solid var(--copper);padding:10px 16px;border-radius:8px;color:white;background:rgba(194,109,58,.12);font-weight:700}
-    .hamburger{display:none;background:none;border:0;color:white;width:42px;height:42px;border-radius:10px;cursor:pointer}
-    .hamburger span{display:block;width:24px;height:2px;background:white;margin:5px auto;border-radius:9px}
-    #menu-toggle{display:none}
-
-    .hero{min-height:100vh;padding:120px 22px 70px;color:white;background:radial-gradient(circle at 78% 45%,rgba(194,109,58,.26),transparent 31%),linear-gradient(135deg,var(--black),var(--charcoal));overflow:hidden;position:relative}
-    .hero:after{content:"";position:absolute;right:-150px;bottom:-180px;width:620px;height:620px;border:1px solid rgba(214,167,122,.22);border-radius:50%;box-shadow:inset 0 0 0 90px rgba(214,167,122,.035),inset 0 0 0 190px rgba(214,167,122,.025)}
-    .hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px;position:relative;z-index:1}
-    .eyebrow{color:var(--sand);letter-spacing:4px;text-transform:uppercase;font-size:13px;margin-bottom:20px}
-    h1{font-size:clamp(42px,7vw,82px);line-height:1.02;letter-spacing:-3px;max-width:760px}
-    h1 span{color:var(--copper)}
-    .lead{margin-top:26px;color:#d1d5db;font-size:18px;line-height:1.8;max-width:620px}
-    .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:8px;border:1px solid var(--copper);font-weight:800;font-size:14px;color:white;background:transparent}
-    .btn.primary{background:var(--copper)}
-    .brand-card{border:1px solid rgba(214,167,122,.35);border-radius:28px;padding:42px 30px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:0 30px 90px rgba(0,0,0,.36);backdrop-filter:blur(10px);text-align:center}
-    .brand-card .mark{width:140px;height:165px;color:white;margin-bottom:18px}
-    .brand-card .word{font-size:clamp(48px,6vw,76px);font-weight:600}
-    .tagline{margin-top:26px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);letter-spacing:5px;font-size:12px;color:#e5e7eb;text-transform:uppercase}
-
-    section{padding:84px 22px}
-    .container{max-width:1180px;margin:auto}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:34px}
-    .section-head h2{font-size:clamp(32px,4vw,52px);letter-spacing:-2px;line-height:1.05}
-    .section-head p{max-width:520px;color:#4b5563;line-height:1.75}
-    .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .tile{background:white;border:1px solid var(--line);border-radius:24px;padding:28px;min-height:260px;box-shadow:0 20px 50px rgba(17,24,39,.06);transition:.25s ease;position:relative;overflow:hidden}
-    .tile:hover{transform:translateY(-5px);box-shadow:0 25px 60px rgba(17,24,39,.1);border-color:rgba(194,109,58,.35)}
-    .tile:after{content:"";position:absolute;right:-42px;bottom:-42px;width:128px;height:128px;border:1px solid rgba(194,109,58,.18);border-radius:50%}
-    .icon{width:46px;height:46px;margin-bottom:24px;color:var(--copper)}
-    .icon svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-    .tile h3{font-size:21px;margin-bottom:12px;letter-spacing:-.5px}
-    .tile p{color:#4b5563;line-height:1.7;font-size:15px}
-    .dark{background:linear-gradient(135deg,var(--black),var(--charcoal));color:white}
-    .dark .section-head p,.dark .tile p{color:#d1d5db}.dark .tile{background:rgba(255,255,255,.05);border-color:rgba(214,167,122,.18);box-shadow:none}.dark .tile h3{color:white}
-    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px;align-items:stretch}.panel{border-radius:28px;padding:34px;background:white;border:1px solid var(--line);box-shadow:0 20px 50px rgba(17,24,39,.06)}.panel.dark-panel{background:linear-gradient(135deg,var(--black),var(--charcoal));color:white;border-color:rgba(214,167,122,.2)}.panel p{color:#4b5563;line-height:1.8}.dark-panel p{color:#d1d5db}.palette{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}.swatch{width:76px;height:76px;border-radius:14px;border:1px solid rgba(0,0,0,.06)}
-    footer{background:var(--black);color:white;padding:40px 22px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:22px;color:#d1d5db}.footer-inner .oryx-logo{color:white}
-
-    @media(max-width:900px){
-      .hamburger{display:block}.nav-links{position:absolute;top:78px;left:0;right:0;display:none;flex-direction:column;align-items:flex-start;padding:22px;background:rgba(11,15,25,.98);border-bottom:1px solid rgba(214,167,122,.2)}#menu-toggle:checked~.nav-links{display:flex}.hero-inner{grid-template-columns:1fr}.brand-card{display:none}.tiles{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:14px}.footer-inner{flex-direction:column;align-items:flex-start}header .word{font-size:24px}
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--charcoal);
+      background:var(--offwhite);
+      line-height:1.6;
     }
-    @media(max-width:560px){.tiles{grid-template-columns:1fr}.hero{padding-top:110px}h1{letter-spacing:-2px}.nav{height:72px}.nav-links{top:72px}.mark{width:42px;height:50px}.word{font-size:24px}}
+
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1180px, calc(100% - 40px)); margin:0 auto; }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:100;
+      background:rgba(17,24,39,.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(214,167,122,.18);
+    }
+
+    .nav {
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      color:white;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:-.5px;
+      font-size:24px;
+    }
+
+    .oryx-mark {
+      width:42px;
+      height:42px;
+      display:block;
+    }
+
+    nav {
+      display:flex;
+      gap:24px;
+      align-items:center;
+      font-size:14px;
+      color:rgba(255,255,255,.82);
+    }
+
+    nav a:hover { color:var(--sand); }
+
+    .hamburger { display:none; }
+    .hamburger-label { display:none; cursor:pointer; }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:13px 18px;
+      border-radius:14px;
+      font-weight:700;
+      font-size:14px;
+      border:1px solid rgba(214,167,122,.6);
+      color:white;
+      background:rgba(194,109,58,.18);
+      transition:.2s ease;
+      white-space:nowrap;
+    }
+
+    .btn:hover {
+      background:var(--copper);
+      transform:translateY(-1px);
+    }
+
+    .btn.dark {
+      background:var(--charcoal);
+      color:white;
+      border-color:var(--charcoal);
+    }
+
+    .hero {
+      min-height:calc(100vh - 78px);
+      display:grid;
+      align-items:center;
+      background:
+        radial-gradient(circle at 75% 35%, rgba(194,109,58,.28), transparent 34%),
+        linear-gradient(135deg, #080C14 0%, #111827 52%, #1f2937 100%);
+      color:white;
+      overflow:hidden;
+      position:relative;
+    }
+
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:auto -8% -22% auto;
+      width:70vw;
+      height:70vw;
+      border:1px solid rgba(214,167,122,.18);
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(214,167,122,.12), transparent 60%);
+    }
+
+    .hero-grid {
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:60px;
+      align-items:center;
+      padding:96px 0;
+    }
+
+    .eyebrow {
+      color:var(--sand);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-weight:800;
+      font-size:12px;
+      margin-bottom:18px;
+    }
+
+    h1 {
+      font-size:clamp(48px, 8vw, 92px);
+      line-height:.95;
+      letter-spacing:-4px;
+      max-width:850px;
+      margin-bottom:24px;
+    }
+
+    .accent { color:var(--sand); }
+    .copper { color:var(--copper); }
+
+    .hero p {
+      max-width:650px;
+      color:rgba(255,255,255,.78);
+      font-size:19px;
+      margin-bottom:32px;
+    }
+
+    .hero-actions {
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .hero-card {
+      border:1px solid rgba(214,167,122,.25);
+      border-radius:32px;
+      padding:34px;
+      background:rgba(255,255,255,.06);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(16px);
+    }
+
+    .hero-card .big-mark {
+      width:150px;
+      margin:0 auto 24px;
+      display:block;
+    }
+
+    .hero-card h2 {
+      font-size:34px;
+      letter-spacing:-1.5px;
+      margin-bottom:10px;
+      text-align:center;
+    }
+
+    .hero-card p {
+      font-size:15px;
+      text-align:center;
+      margin:0 auto;
+    }
+
+    section {
+      padding:92px 0;
+    }
+
+    .section-head {
+      max-width:780px;
+      margin-bottom:34px;
+    }
+
+    .section-head h2 {
+      font-size:clamp(34px, 5vw, 58px);
+      line-height:1.02;
+      letter-spacing:-2px;
+      margin-bottom:16px;
+    }
+
+    .section-head p {
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .tiles {
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
+    }
+
+    .tile {
+      background:white;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:30px;
+      min-height:230px;
+      box-shadow:0 18px 50px rgba(17,24,39,.08);
+      transition:.2s ease;
+    }
+
+    .tile:hover {
+      transform:translateY(-4px);
+      box-shadow:var(--shadow);
+    }
+
+    .tile-icon {
+      width:52px;
+      height:52px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:rgba(194,109,58,.12);
+      color:var(--copper);
+      margin-bottom:18px;
+      font-size:24px;
+    }
+
+    .tile h3 {
+      font-size:23px;
+      letter-spacing:-.8px;
+      margin-bottom:10px;
+    }
+
+    .tile p {
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .dark-band {
+      background:var(--charcoal);
+      color:white;
+    }
+
+    .dark-band .section-head p,
+    .dark-band .tile p {
+      color:rgba(255,255,255,.68);
+    }
+
+    .dark-band .tile {
+      background:rgba(255,255,255,.055);
+      border-color:rgba(214,167,122,.18);
+    }
+
+    .product-card {
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:40px;
+      align-items:center;
+      padding:36px;
+      border-radius:34px;
+      background:
+        linear-gradient(135deg, rgba(17,24,39,.96), rgba(31,41,55,.96)),
+        radial-gradient(circle at 80% 30%, rgba(194,109,58,.25), transparent 40%);
+      color:white;
+      border:1px solid rgba(214,167,122,.32);
+      box-shadow:var(--shadow);
+    }
+
+    .badge {
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(194,109,58,.16);
+      border:1px solid rgba(214,167,122,.38);
+      color:var(--sand);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .product-card h3 {
+      font-size:clamp(42px, 6vw, 76px);
+      letter-spacing:-3px;
+      line-height:.95;
+      margin-bottom:16px;
+    }
+
+    .product-card p {
+      color:rgba(255,255,255,.74);
+      font-size:17px;
+      max-width:720px;
+      margin-bottom:18px;
+    }
+
+    .product-visual {
+      border-radius:26px;
+      min-height:330px;
+      background:
+        radial-gradient(circle at 70% 30%, rgba(194,109,58,.55), transparent 20%),
+        linear-gradient(140deg, rgba(214,167,122,.24), rgba(255,255,255,.06)),
+        repeating-linear-gradient(45deg, transparent, transparent 16px, rgba(255,255,255,.04) 17px);
+      border:1px solid rgba(255,255,255,.12);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:28px;
+    }
+
+    .product-visual strong {
+      font-size:40px;
+      letter-spacing:-1.5px;
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .about-grid {
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:40px;
+      align-items:start;
+    }
+
+    .values {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .value {
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:24px;
+    }
+
+    .value strong {
+      display:block;
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    .value span { color:var(--muted); font-size:14px; }
+
+    .contact-card {
+      padding:38px;
+      border-radius:32px;
+      background:white;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:28px;
+    }
+
+    footer {
+      padding:34px 0;
+      background:var(--charcoal);
+      color:rgba(255,255,255,.65);
+      font-size:14px;
+    }
+
+    footer .container {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width:900px) {
+      .hamburger-label { display:block; color:white; font-size:28px; }
+      nav {
+        position:absolute;
+        left:20px;
+        right:20px;
+        top:78px;
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        background:var(--charcoal);
+        border:1px solid rgba(214,167,122,.2);
+        border-radius:20px;
+        padding:22px;
+      }
+      .hamburger:checked ~ nav { display:flex; }
+      .nav .btn { display:none; }
+      .hero-grid,
+      .product-card,
+      .about-grid {
+        grid-template-columns:1fr;
+      }
+      .tiles { grid-template-columns:1fr; }
+      .values { grid-template-columns:1fr; }
+      .contact-card { flex-direction:column; align-items:flex-start; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <nav class="nav">
-      <a class="oryx-logo" href="#home" aria-label="Oryxen home">
-        <svg class="mark" viewBox="0 0 80 100" aria-hidden="true"><polyline class="accent" points="40 50 22 6 39 76 58 6 40 50"/><path d="M30 58 L17 49 L12 38 L26 43 L36 58"/><path d="M50 58 L63 49 L68 38 L54 43 L44 58"/><path d="M31 65 L24 78 L33 91 L40 95 L47 91 L56 78 L49 65"/><path d="M34 82 L40 86 L46 82"/><line x1="40" y1="50" x2="40" y2="88"/></svg>
-        <span><span class="word">Ory<span class="x">x</span>en</span><span class="domain">.co.za</span></span>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Oryxen home">
+        <svg class="oryx-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M50 10 L36 68 L50 86 L64 68 Z" stroke="#C26D3A" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M36 68 L22 48 M64 68 L78 48" stroke="#F9FAFB" stroke-width="4" stroke-linecap="round"/>
+          <path d="M50 10 L30 6 M50 10 L70 6" stroke="#D6A77A" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        Oryxen
       </a>
-      <input type="checkbox" id="menu-toggle" />
-      <label class="hamburger" for="menu-toggle" aria-label="Open menu"><span></span><span></span><span></span></label>
-      <div class="nav-links">
-        <a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#about">About</a><a href="#work">Work</a><a href="#contact" class="nav-cta">Let's Talk</a>
-      </div>
-    </nav>
+
+      <input class="hamburger" type="checkbox" id="menu" />
+      <label class="hamburger-label" for="menu">☰</label>
+
+      <nav>
+        <a href="#services">Solutions</a>
+        <a href="#ai">AI</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn" href="#contact">Let’s Talk</a>
+    </div>
   </header>
 
-  <main id="home" class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="eyebrow">Digital solutions. Real impact.</div>
-        <h1>We build digital products that move your business <span>forward.</span></h1>
-        <p class="lead">Oryxen.co.za delivers smart, scalable web, mobile and cloud solutions for businesses that want to grow, adapt and lead.</p>
-        <div class="actions"><a class="btn primary" href="#services">Explore Services</a><a class="btn" href="#contact">Start a Project</a></div>
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Digital Solutions. Real Impact.</p>
+          <h1>Building digital products that move businesses <span class="accent">forward.</span></h1>
+          <p>Oryxen designs and builds modern web platforms, mobile applications, cloud solutions and AI-powered experiences that create measurable value.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Explore Solutions</a>
+            <a class="btn" href="#products">View Products</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <svg class="big-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <path d="M50 8 L34 67 L50 88 L66 67 Z" stroke="#C26D3A" stroke-width="3.5" stroke-linejoin="round"/>
+            <path d="M34 67 L18 45 M66 67 L82 45" stroke="#F9FAFB" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M50 8 L29 4 M50 8 L71 4" stroke="#D6A77A" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <h2>Focused. Agile. Relentless.</h2>
+          <p>We combine strategy, design, engineering and AI capability to build solutions that solve real business problems.</p>
+        </div>
       </div>
-      <div class="brand-card">
-        <svg class="mark" viewBox="0 0 80 100"><polyline class="accent" points="40 50 22 6 39 76 58 6 40 50"/><path d="M30 58 L17 49 L12 38 L26 43 L36 58"/><path d="M50 58 L63 49 L68 38 L54 43 L44 58"/><path d="M31 65 L24 78 L33 91 L40 95 L47 91 L56 78 L49 65"/><path d="M34 82 L40 86 L46 82"/><line x1="40" y1="50" x2="40" y2="88"/></svg>
-        <div class="word">Ory<span class="x">x</span>en</div><div class="domain" style="text-align:center;font-size:20px">.co.za</div><div class="tagline">Focused. Agile. Relentless.</div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">What We Build</p>
+          <h2>Modern digital solutions for businesses and products.</h2>
+          <p>From business platforms to mobile experiences, Oryxen helps turn ideas into scalable digital systems.</p>
+        </div>
+
+        <div class="tiles">
+          <article class="tile">
+            <div class="tile-icon">⌘</div>
+            <h3>Web Platforms</h3>
+            <p>Custom websites, portals, dashboards and business applications built for speed, usability and scale.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">▣</div>
+            <h3>Mobile Applications</h3>
+            <p>Responsive and mobile-first digital experiences designed for real users on real devices.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">☁</div>
+            <h3>Cloud Solutions</h3>
+            <p>Scalable cloud-native architecture, integrations, deployments and operational foundations.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">↗</div>
+            <h3>Digital Products</h3>
+            <p>Strategy, design and development for new products, SaaS concepts and internal innovation platforms.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">◎</div>
+            <h3>UX & Interface Design</h3>
+            <p>Clean, intuitive product experiences that make complex workflows feel simple and usable.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">⚙</div>
+            <h3>Automation</h3>
+            <p>Business process automation that reduces manual work and connects systems intelligently.</p>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="dark-band" id="ai">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Conversational AI</p>
+          <h2>Azure OpenAI-powered assistants for real business use cases.</h2>
+          <p>Oryxen already has conversational AI capability using Azure OpenAI as the LLM layer. We use this to build assistants that answer, guide, recommend and automate.</p>
+        </div>
+
+        <div class="tiles">
+          <article class="tile">
+            <div class="tile-icon">💬</div>
+            <h3>Business AI Assistants</h3>
+            <p>Website and internal assistants that help users find information, complete tasks and get guided support.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">📄</div>
+            <h3>Knowledge & Document Q&A</h3>
+            <p>AI experiences that answer questions from business documents, knowledge bases, policies and structured data.</p>
+          </article>
+
+          <article class="tile">
+            <div class="tile-icon">📍</div>
+            <h3>Conversational Discovery</h3>
+            <p>Natural-language discovery experiences, including Detour’s future ability to recommend nearby places based on location and preferences.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Flagship Product</p>
+          <h2>Oryxen builds and operates its own digital products.</h2>
+          <p>Our products demonstrate the way we combine strategy, design, data, engineering and AI into practical real-world platforms.</p>
+        </div>
+
+        <div class="product-card">
+          <div>
+            <span class="badge">Coming Soon</span>
+            <h3>Detour</h3>
+            <p>Detour is a location-based discovery platform that helps people find curated experiences worth stopping for.</p>
+            <p>It will surface wine farms, restaurants, running trails, hiking routes, MTB trails, paddle spots, entertainment venues and hidden gems based on where the user is and what they care about.</p>
+            <a class="btn" href="https://mydetour.co.za">Visit mydetour.co.za</a>
+          </div>
+
+          <div class="product-visual">
+            <div>
+              <strong>Ask Detour</strong>
+              <span>“Find a child-friendly wine farm within 20km with outdoor seating.”</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="section-head">
+          <p class="eyebrow">About Oryxen</p>
+          <h2>Purposeful technology, built with precision.</h2>
+          <p>Oryxen is a South African digital product company focused on creating modern solutions that connect businesses, people and opportunities through technology.</p>
+        </div>
+
+        <div class="values">
+          <div class="value">
+            <strong>Focused</strong>
+            <span>We solve meaningful problems instead of building technology for its own sake.</span>
+          </div>
+          <div class="value">
+            <strong>Agile</strong>
+            <span>We iterate quickly, validate ideas and improve through real feedback.</span>
+          </div>
+          <div class="value">
+            <strong>Scalable</strong>
+            <span>We design foundations that can grow with products and businesses.</span>
+          </div>
+          <div class="value">
+            <strong>Impact-driven</strong>
+            <span>Every solution should create measurable value for users and businesses.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">Let’s Build</p>
+            <h2>Have an idea, product or business problem?</h2>
+            <p>Oryxen can help shape it into a practical digital solution.</p>
+          </div>
+          <a class="btn dark" href="mailto:hello@oryxen.co.za">hello@oryxen.co.za</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <section id="services">
+  <footer>
     <div class="container">
-      <div class="section-head"><h2>What we offer</h2><p>Each service is designed as a clear building block: practical, scalable and focused on measurable business value.</p></div>
-      <div class="tiles">
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><rect x="7" y="10" width="34" height="24" rx="3"/><path d="M18 20l-5 4 5 4M30 20l5 4-5 4M26 18l-4 12M18 40h12M24 34v6"/></svg></div><h3>Web Solutions</h3><p>Responsive websites, web apps and digital platforms built for performance, clarity and conversion.</p></article>
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><rect x="15" y="6" width="18" height="36" rx="4"/><path d="M21 36h6"/></svg></div><h3>Mobile Solutions</h3><p>Mobile-first experiences that work beautifully across phones, tablets and modern browsers.</p></article>
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M17 34h20a8 8 0 0 0 0-16 12 12 0 0 0-23-3A9 9 0 0 0 17 34z"/></svg></div><h3>Cloud Solutions</h3><p>Modern hosting, databases, APIs, storage and deployment workflows without unnecessary complexity.</p></article>
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M8 40h34M12 40V25h6v15M22 40V16h6v24M32 40V8h6v32"/></svg></div><h3>Digital Growth</h3><p>Data-driven improvements, automation and digital tools that help businesses grow smarter.</p></article>
-      </div>
+      <span>© 2026 Oryxen. Digital solutions. Real impact.</span>
+      <span>Oryxen.co.za • @oryxen.co.za</span>
     </div>
-  </section>
-
-  <section id="solutions" class="dark">
-    <div class="container">
-      <div class="section-head"><h2>Solution tiles</h2><p>Oryxen can support internal business systems, customer-facing platforms and future product ideas like Detour.</p></div>
-      <div class="tiles">
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M24 5l15 7v11c0 10-6 17-15 20C15 40 9 33 9 23V12z"/><path d="M18 24l4 4 8-9"/></svg></div><h3>Business Systems</h3><p>Dashboards, admin portals, CRM-style tools and internal workflow systems.</p></article>
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M6 30l18-18 18 18M12 30v12h24V30"/><path d="M20 42V30h8v12"/></svg></div><h3>Marketplaces</h3><p>Directory platforms, booking concepts, curated listings and location-based discovery.</p></article>
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M8 34c10-20 22-20 32 0"/><circle cx="24" cy="25" r="4"/><path d="M24 9v7M13 14l5 5M35 14l-5 5"/></svg></div><h3>Automation</h3><p>Reduce manual work with integrated forms, workflows, notifications and reporting.</p></article>
-        <article class="tile"><div class="icon"><svg viewBox="0 0 48 48"><path d="M24 4l5 15 15 5-15 5-5 15-5-15-15-5 15-5z"/></svg></div><h3>AI Enablement</h3><p>Practical AI features for search, summaries, recommendations and business productivity.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container about-grid">
-      <div class="panel dark-panel"><div class="oryx-logo"><svg class="mark" viewBox="0 0 80 100"><polyline class="accent" points="40 50 22 6 39 76 58 6 40 50"/><path d="M30 58 L17 49 L12 38 L26 43 L36 58"/><path d="M50 58 L63 49 L68 38 L54 43 L44 58"/><path d="M31 65 L24 78 L33 91 L40 95 L47 91 L56 78 L49 65"/><path d="M34 82 L40 86 L46 82"/><line x1="40" y1="50" x2="40" y2="88"/></svg><span><span class="word">Ory<span class="x">x</span>en</span><span class="domain">.co.za</span></span></div><p style="margin-top:26px">A modern digital solutions brand with a sharp, lightweight identity inspired by precision, movement and resilience.</p></div>
-      <div class="panel"><h2 style="font-size:38px;letter-spacing:-1.5px;margin-bottom:16px">Brand colours</h2><p>The palette now follows the Atlas Foundry direction: deep charcoal, slate, copper, warm sand and soft off-white.</p><div class="palette"><div class="swatch" style="background:#111827"></div><div class="swatch" style="background:#374151"></div><div class="swatch" style="background:#C26D3A"></div><div class="swatch" style="background:#D6A77A"></div><div class="swatch" style="background:#F9FAFB"></div></div></div>
-    </div>
-  </section>
-
-  <section id="work" class="dark"><div class="container"><div class="section-head"><h2>Built for future products</h2><p>Detour can become the flagship product under Oryxen: a location-first discovery experience for wine farms, restaurants, entertainment and curated places.</p></div><div class="tiles"><article class="tile"><h3>Detour</h3><p>Location-aware discovery platform.</p></article><article class="tile"><h3>Client Platforms</h3><p>Custom digital solutions for businesses.</p></article><article class="tile"><h3>Data Tools</h3><p>Dashboards and reporting systems.</p></article><article class="tile"><h3>AI Products</h3><p>Smart tools and recommendation engines.</p></article></div></div></section>
-
-  <section id="contact"><div class="container"><div class="section-head"><h2>Let’s build together</h2><p>Ready for web, mobile, cloud and digital growth projects.</p></div><a class="btn primary" href="mailto:hello@oryxen.co.za">hello@oryxen.co.za</a></div></section>
-
-  <footer><div class="footer-inner"><div class="oryx-logo"><svg class="mark" viewBox="0 0 80 100"><polyline class="accent" points="40 50 22 6 39 76 58 6 40 50"/><path d="M30 58 L17 49 L12 38 L26 43 L36 58"/><path d="M50 58 L63 49 L68 38 L54 43 L44 58"/><path d="M31 65 L24 78 L33 91 L40 95 L47 91 L56 78 L49 65"/><path d="M34 82 L40 86 L46 82"/><line x1="40" y1="50" x2="40" y2="88"/></svg><span><span class="word">Ory<span class="x">x</span>en</span><span class="domain">.co.za</span></span></div><p>© 2026 Oryxen Digital. All rights reserved.</p></div></footer>
+  </footer>
 </body>
 </html>
